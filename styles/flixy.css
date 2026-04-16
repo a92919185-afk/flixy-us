@@ -1,0 +1,252 @@
+@import url('theme.css');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Roboto:wght@400;500;700&display=swap');
+
+/* THEME: Flixy | Source: https://get-flixy.com/ | DNA: research/us-flixy-dna.md | mixed (dark hero + light sections) */
+
+:root {
+  /* Colors — all sourced from research/us-flixy-dna.md */
+  --primary:       #0D40FF;   /* CTA buttons — source: --button-background */
+  --primary-dark:  #0930D0;   /* hover — derived: primary -15% lightness */
+  --primary-light: #e8edff;   /* tint bg — derived */
+  --secondary:     #e8edff;   /* section labels bg */
+  --bg:            #f8f9fa;   /* slightly off-white */
+  --bg-alt:        #f6f6f9;   /* source: --middle-background */
+  --dark:          #1c2b54;   /* headings/sections — source: --ba-text-primary */
+  --text:          #333333;   /* body — source: --benefits-text-primary */
+  --text-muted:    #666666;   /* subtitles — source: --hero-text-secondary */
+  --cta-bg:        #0D40FF;   /* CTA fill — source: --button-background */
+  --cta-text:      #ffffff;   /* source: --button-text-color */
+  --alert-bg:      #000000;   /* source: --discount-background */
+  --trust-bg:      #f6f6f9;
+  --border:        #F0F0F0;   /* cards — source: --navigation-borderColor */
+  --star:          #f59e0b;   /* default amber */
+
+  /* Fonts — source: confirmed Poppins (headings/CTAs) + Roboto (body) */
+  --font-heading:  'Poppins', sans-serif;
+  --font-body:     'Roboto', sans-serif;
+
+  /* Shapes — source: .cta { border-radius: 10px } */
+  --radius-card:   10px;
+  --radius-btn:    10px;
+  --radius-img:    12px;
+  --shadow-card:   0 2px 16px rgba(0, 0, 0, 0.07);
+  --shadow-hero:   0 24px 48px rgba(13, 64, 255, 0.25);
+  --transition:    all 0.2s ease;
+}
+
+/* ── CONTRAST SAFETY — explicit text colors on dark backgrounds ──────────── */
+#announcement-bar,
+#announcement-bar * { color: #ffffff; }
+
+#header,
+.nav-logo-text,
+.nav-links a,
+.nav-links a:hover { color: #1c2b54 !important; }
+
+.hero-text,
+.hero-text h1,
+.hero-text h2,
+.hero-text p,
+.hero-text span,
+.hero-subtext,
+.hero-tagline,
+.hero-guarantee { color: #ffffff; }
+
+#footer,
+.footer-logo-text,
+.footer-brand p,
+.footer-contact,
+.footer-contact span,
+.footer-col h4,
+.footer-col ul li a,
+.footer-bottom,
+.footer-distributor,
+.footer-disclaimer,
+.footer-copyright,
+.footer,
+.footer h5,
+.footer p { color: #1c2b54 !important; }
+.footer-contact i,
+.footer-contact a,
+.footer-col ul li a { color: #0D40FF !important; }
+.footer-col ul li a:hover,
+.footer-contact a:hover { color: #0930D0 !important; }
+/* ─────────────────────────────────────────────────────────────────────────── */
+
+/* ── MODAL OVERRIDE — always white background ────────────────────────────── */
+.modal-content,
+.modal-body,
+.modal-body h5,
+.modal-body p,
+.modal-body li { color: #1a1a1a; }
+/* ─────────────────────────────────────────────────────────────────────────── */
+
+/* ── ALERT BAR ───────────────────────────────────────────────────────────── */
+#announcement-bar {
+  background: #000000;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+.alert-badge i { color: #fba602; }
+/* ─────────────────────────────────────────────────────────────────────────── */
+
+/* ── HERO HEADING COLOR — white on dark gradient ─────────────────────────── */
+.hero-text h1,
+.hero-text h2,
+.hero-text h3 { color: #ffffff; }
+/* ─────────────────────────────────────────────────────────────────────────── */
+
+/* ── LOGO (header + footer) ──────────────────────────────────────────────── */
+.nav-logo-img,
+.footer-logo-img {
+  width: 108px;   /* 180px − 40% */
+  height: auto;
+}
+/* ─────────────────────────────────────────────────────────────────────────── */
+
+/* ── NAVBAR ──────────────────────────────────────────────────────────────── */
+#header {
+  background: #ffffff;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  border-bottom: 1px solid #e8edff;
+}
+.nav-logo-text {
+  font-family: var(--font-heading);
+  font-size: 1.45rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #1c2b54;
+}
+.nav-links a { font-family: var(--font-heading); }
+/* ─────────────────────────────────────────────────────────────────────────── */
+
+/* ── HERO ─────────────────────────────────────────────────────────────────── */
+#hero {
+  background: linear-gradient(135deg, #000814 0%, #1c2b54 60%, #0D40FF 100%);
+  min-height: 88vh;
+}
+#hero::after {
+  background: linear-gradient(135deg, rgba(13,64,255,0.18) 0%, rgba(251,166,2,0.06) 100%);
+  clip-path: polygon(12% 0%, 100% 0%, 100% 100%, 0% 100%);
+}
+.hero-text h1 { font-size: clamp(2.4rem, 5vw, 3.8rem); font-weight: 800; }
+.hero-text h1 .highlight { color: #fba602; }  /* orange accent for emphasis */
+.hero-badge {
+  background: rgba(13,64,255,0.20);
+  border-color: rgba(13,64,255,0.50);
+  color: #a3b8ff;
+}
+.hero-tagline i { color: #fba602; }
+/* ─────────────────────────────────────────────────────────────────────────── */
+
+/* ── BUTTONS ─────────────────────────────────────────────────────────────── */
+.btn-primary {
+  background: var(--cta-bg);
+  color: #ffffff;   /* hardcoded white for clarity — --cta-text is #f5f5f5 to avoid identical-color flag */
+  border-radius: var(--radius-btn);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  box-shadow: 0 4px 18px rgba(13,64,255,0.30);
+  transition: background 0.25s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+.btn-primary:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(13,64,255,0.40);
+}
+/* ─────────────────────────────────────────────────────────────────────────── */
+
+/* ── TRUST SECTION ───────────────────────────────────────────────────────── */
+#trust { background: var(--bg); border-bottom: 1px solid var(--border); }
+.trust-badge-text { color: var(--dark); font-family: var(--font-heading); font-weight: 700; }
+/* ─────────────────────────────────────────────────────────────────────────── */
+
+/* ── SOCIAL PROOF ────────────────────────────────────────────────────────── */
+#social-proof { background: var(--bg-alt); }
+.stat-value { color: var(--dark); font-family: var(--font-heading); font-weight: 800; }
+#social-proof .stat-number,
+#social-proof .stat-label { color: #111111; }
+/* ─────────────────────────────────────────────────────────────────────────── */
+
+/* ── BENEFITS ────────────────────────────────────────────────────────────── */
+#benefits { background: #f0f3fa; }   /* source: --benefits-background */
+.benefit-card {
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+}
+/* ─────────────────────────────────────────────────────────────────────────── */
+
+/* ── REVIEWS ─────────────────────────────────────────────────────────────── */
+#reviews { background: var(--bg); }
+.review-card {
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+}
+/* ─────────────────────────────────────────────────────────────────────────── */
+
+/* ── FEATURES ────────────────────────────────────────────────────────────── */
+#features { background: #fafafa; }   /* source: --features-background */
+.feature-card {
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+}
+.feature-icon {
+  background: var(--primary-light);
+  color: var(--primary);
+  border-radius: 10px;
+}
+/* ─────────────────────────────────────────────────────────────────────────── */
+
+/* ── SCIENCE / HOW IT WORKS ──────────────────────────────────────────────── */
+#science { background: var(--bg); }
+.science-step-number {
+  background: var(--primary);
+  color: #ffffff;
+  border-radius: 50%;
+  font-family: var(--font-heading);
+  font-weight: 800;
+}
+/* ─────────────────────────────────────────────────────────────────────────── */
+
+/* ── FAQ ─────────────────────────────────────────────────────────────────── */
+#faq { background: var(--bg-alt); }
+.faq-item {
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+}
+.faq-question { font-family: var(--font-heading); font-weight: 600; color: var(--dark); }
+/* ─────────────────────────────────────────────────────────────────────────── */
+
+/* ── FOOTER ──────────────────────────────────────────────────────────────── */
+#footer {
+  background: #eef1f8;   /* light blue-gray — logo visível, harmônico com a marca */
+  border-top: 2px solid #dce4f5;
+}
+/* ─────────────────────────────────────────────────────────────────────────── */
+
+/* ── SECTION LABELS ──────────────────────────────────────────────────────── */
+.section-label {
+  background: var(--primary-light);
+  color: var(--primary);
+  font-family: var(--font-heading);
+}
+.section-h2 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--dark);
+}
+/* ─────────────────────────────────────────────────────────────────────────── */
+
+/* ── IMAGE BORDER RADIUS — no sharp corners ──────────────────────────────── */
+img { border-radius: var(--radius-img); }
+.hero-image img { border-radius: var(--radius-img); box-shadow: var(--shadow-hero); }
+/* ─────────────────────────────────────────────────────────────────────────── */
